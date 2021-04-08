@@ -3,13 +3,10 @@
 Created on Mon Mar 15 20:48:10 2021
 
 @author: KieraLynn
-
-ε=0.25 #时间频繁的支持度
 """
 from temporal_mining import *
 import csv
 import copy
-
 Q1=[]
 def Q_data(period):
     temp=[]
@@ -38,7 +35,6 @@ def Q_data(period):
         rs= sorted(temp[x],key=lambda i:item_recency[i],reverse=True)
         period.append(rs)
 Q_data(Q1)
-
 
 def temporal_res(period):
     for tran in period:
