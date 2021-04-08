@@ -8,24 +8,22 @@ Created on Mon Mar 15 15:10:04 2021
 """
 参数说明
 1、时间范围 两年期间8个Quaters
-第1年Q1:1-68 Q2:69-132 Q3:133-195 Q4:196-262
-第2年Q5:263-294 Q6:295-332 Q7:333-368 Q8:369-411
 2、输入的原始数据
-3、时间敏感参数δ（time-decay parameter)
+3、时间敏感参数δ（time-sensitive parameter)
 4、1-项非频繁项的剪枝阈值
 计数的支持度：
 thresh1=0.2189781 * 记录数量
 thresh2=0.0729927 * 记录数量
 时间频繁的支持度：0.25
 
-5、挖掘的阈值ε(设置为5以上)
+5、挖掘的阈值ε
 """
 import itertools
 from clean_data import *
 from Hierarchy_tree import *
 import Trimming_Header_table
 δ= 0.15#时间敏感参数
-ε=2 #时间频繁的支持度
+#ε时间频繁的支持度
 #transactions = try1[69:133]#Q2
 #transactions = try1[133:196]#Q3
 #transactions = try1[196:263]#Q4
@@ -65,9 +63,6 @@ def ItemRecency():
 ItemRecency()
 #利用计数对i-item进行剪枝
 #挖掘得到的频繁项再进行时间阈值比较，将时间不频繁的删除
-
-#thresh1=0.2189781 * 记录数量
-#thresh2=0.0729927 * 记录数量
 from itertools import combinations
 ranked_trans=[]
 def rankfact ():
@@ -76,7 +71,7 @@ def rankfact ():
         ranked_trans.append(rs)
     ranked_trans.insert(0,'事故模式')
 rankfact()
-# 全组合
+# 全组合 ALL COMBINATIONS
 from copy import deepcopy
 def per(arr, start, num,res):
     if num == 0:
