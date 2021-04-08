@@ -31,7 +31,7 @@ import csv
 tran_score = copy.deepcopy(datas)
 severity=[]
 
-def wtf():
+def lossvalue():
     for i in range(1,412):
         tran = tran_score[i]
         death =tran['死亡']
@@ -68,7 +68,7 @@ def wtf():
     for i in range(1,len(tmp_ac)):
         severity[i].append(tmp_ac[i]['score'])
         severity[i].append(accidents[i])
-wtf()
+lossvalue()
 del tran_score
 raw=[]
 def mined_data(period):
