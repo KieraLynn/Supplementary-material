@@ -1,7 +1,7 @@
 # Supplementary-material
 
 
-This project includes ARM results of perspective one and two.
+This project includes ARM results of perspective one.
 
 
 
