@@ -17,10 +17,7 @@ Created on Mon Mar 15 15:10:04 2021
 """
 参数说明
 1、时间范围 两年期间8个Quaters
-第1年Q1:1-68 Q2:69-132 Q3:133-195 Q4:196-262
-第2年Q5:263-294 Q6:295-332 Q7:333-368 Q8:369-411
 2、输入的原始数据
-severity_threshold= 0.15#事故后果阈值
 """
 import itertools
 from clean_data import *
