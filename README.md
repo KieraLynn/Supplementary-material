@@ -1,4 +1,4 @@
-# Data-for-article
+# materials
 
 
 This project includes ARM results of perspective one.
@@ -15,5 +15,5 @@ Supporting scripts are not provided.
 
 
 
-Some footnotes are writtern in Chinese.
+Some footnotes were writtern in Chinese.
 
