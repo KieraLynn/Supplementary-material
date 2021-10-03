@@ -65,7 +65,7 @@ def lossvalue():
     for i in range(1,len(tmp_ac)):
         severity[i].append(tmp_ac[i]['score'])
         severity[i].append(accidents[i])
-lossvalue()
+
 del tran_score
 raw=[]
 def mined_data(period):
@@ -90,9 +90,7 @@ def mined_data(period):
         else:
             pass
         tran.pop(len(tran)-1)
-mined_data(raw)
-score_of_mined =[]
-sever_res=[]
+
 def prunning():
     for i in range(len(raw)):
         score_of_mined.append([])
@@ -109,7 +107,6 @@ def prunning():
                  sum_score.append(item)
         if sum(sum_score) > 0.07:
             sever_res.append(score_of_mined[i])
-prunning()
 
 def organize():
     for i in range(0,len(sever_res)):
@@ -119,8 +116,6 @@ def organize():
                 sum1.append(item)
         sever_res[i].insert(0,sum(sum1))
         del sever_res[i][1:len(sever_res[i])-1]
-organize()
-
 
 def output_excel(data):
     output = open('data.xls','w',encoding='gbk')
@@ -130,6 +125,13 @@ def output_excel(data):
              output.write('\t')  #相当于Tab一下，换一个单元格
         output.write('\n')    #写完一行立马换行
     output.close()
-output_excel(sever_res)
+if __name__ == '__main__':
+    lossvalue()
+    mined_data(raw)
+    score_of_mined =[]
+    sever_res=[]
+    prunning()
+    organize()
+    output_excel(sever_res)
 
 
