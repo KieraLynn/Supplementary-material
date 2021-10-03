@@ -12,7 +12,6 @@ def Q_data(period):
     temp=[]
     with open('./try.csv', 'r') as f:
         reader = csv.reader(f)
-        #print(type(reader))
         for row in reader:
             temp.append(row)
     for tran in temp:
