@@ -8,9 +8,11 @@ This project includes ARM results of perspective one.
 
 The python scripts are original and for study only.
 
+The dictionaries from _Sougou Input Method_ are provided.
 
 
-Supporting scripts are not provided.
+
+Raw and unstructed reports are not provided.
 
 
 
