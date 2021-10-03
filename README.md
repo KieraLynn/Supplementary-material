@@ -8,7 +8,7 @@ This project includes ARM results of perspective one.
 
 The python scripts are original and for study only.
 
-The dictionaries from _Sougou Input Method_ are provided.
+The dictionaries from _Sougou Input Method_ are provided.(Each line represents the pronunciation and the term in Chinese.)
 
 
 
