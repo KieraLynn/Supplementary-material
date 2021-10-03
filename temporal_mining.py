@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Mar 15 15:10:04 2021
-
 @author: KieraLynn
 """
 
 """
-参数说明
+Params:
 1、时间范围 两年期间8个Quaters
 2、输入的原始数据
 3、时间敏感参数δ（time-sensitive parameter)
@@ -15,7 +14,6 @@ Created on Mon Mar 15 15:10:04 2021
 thresh1=0.2189781 * 记录数量
 thresh2=0.0729927 * 记录数量
 时间频繁的支持度：0.25
-
 5、挖掘的阈值ε
 """
 import itertools
@@ -24,13 +22,6 @@ from Hierarchy_tree import *
 import Trimming_Header_table
 δ= 0.15#时间敏感参数
 #ε时间频繁的支持度
-#transactions = try1[69:133]#Q2
-#transactions = try1[133:196]#Q3
-#transactions = try1[196:263]#Q4
-#transactions = try1[263:295]#Q5
-#transactions = try1[295:333]#Q6
-#transactions = try1[333:369]#Q7
-#transactions = try1[369:412]#Q8
 
 Recency={}
 def trans_recency():
@@ -117,7 +108,3 @@ def Combination_recency():
 Combination_recency()
 
 del h,start, resul,k,item,i
-'''
-for k,v in combination_dict.items():
-        temp = sum(v)
-        combination_dict[k] = temp'''
