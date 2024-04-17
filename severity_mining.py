@@ -28,46 +28,42 @@ import csv
 tran_score = copy.deepcopy(datas)
 severity=[]
 
-def lossvalue():
-    for i in range(1,412):
-        tran = tran_score[i]
-        death =tran['死亡']
-        minor = tran['轻伤']
-        severe =tran['重伤']
-        cost = tran['经济损失']
-        if death == 0 :
-            if severe == 0:
-                if 0<minor < 3 or 0<cost < 1 :
-                    tran['score'] = 0.01
-                elif minor ==0 and cost ==0:
-                    tran['score'] = 0
-                elif minor >= 3 or 1 <= cost < 5:
-                     tran['score'] = 0.05
-                elif 5 <= cost < 10:
-                    tran['score'] = 0.1
-            elif severe ==1:
-                tran['score'] = 0.05
-            elif severe > 1 :
-                tran['score'] = 0.1
-
-        elif death < 3 or 10 <= cost < 20:
-            tran['score'] = 1
-        elif death > 3:
-            tran['score'] = 10
+def lossvalue(tran_score,idx):
+    tran = tran_score[idx]
+    death =tran['死亡']
+    minor = tran['轻伤']
+    severe =tran['重伤']
+    cost = tran['经济损失']
+    
+    if death +severe == 0:
+        if 0 < minor < 3 or 0<cost < 1 :
+            tran['score'] = 0.01
+        elif minor + cost ==0:
+            tran['score'] = 0
+        elif minor >= 3 and 1 <= cost < 5:
+            tran['score'] = 0.05
+        elif 5 <= cost < 10:
+            tran['score'] = 0.1
+    elif severe ==1:
+        tran['score'] = 0.05
+    elif severe > 1 :
+        tran['score'] = 0.1
+    elif death < 3 or 10 <= cost < 20:
+        tran['score'] = 1
+    elif death > 3:
+        tran['score'] = 10
     tmp_ac = []
-    for tran in  tran_score[1:412]:
-        if tran['事件类型'] == '事故':
-            tmp_ac.append(tran)
-    tmp_ac.insert(0,'事故严重程度')
-    for i in range(1,149):
+    if tran['事件类型'] == '事故':
+        tmp_ac.append(tran)
+        tmp_ac.insert(0,'事故严重程度')
         severity.append([])
-    severity.insert(0,'事故严重程度')
+        severity.insert(0,'事故严重程度')
     for i in range(1,len(tmp_ac)):
         severity[i].append(tmp_ac[i]['score'])
         severity[i].append(accidents[i])
+    del tran_score
+    raw=[]
 
-del tran_score
-raw=[]
 def mined_data(period):
     with open('./try.csv', 'r') as f:
         reader = csv.reader(f)
